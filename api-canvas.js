@@ -13,6 +13,11 @@ AFRAME.registerComponent('api-canvas', {
 
     function getList(url){
       // make api request here
+      fetch("https://swapi.co/api/people/")
+        .then(response => response.json())
+        .then((data) => {
+          console.log(data.results);
+      });
       return 'first restaurant\n second restaurant'
     };
   }
