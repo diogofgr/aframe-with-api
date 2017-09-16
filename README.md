@@ -26,7 +26,7 @@ Create an entity to display the API responses:
 <a-scene>
 	[...]
 	<a-entity
-		api-canvas
+		api-ui
 		id="restaurants-list"
 		position="-2.5 2 -3"
 		rotation="0 20 0"
@@ -37,3 +37,5 @@ Create an entity to display the API responses:
 </a-scene>
 ```
 
+The canvas must have ` id="restaurants-list" ` and the buttons must have ` class="api-button" `.
+Both must have the component ` api-ui ` like you see above.
