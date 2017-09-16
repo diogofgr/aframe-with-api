@@ -1,24 +1,31 @@
 AFRAME.registerComponent('api-canvas', {
   init: function () {
-    var url = 'http://...';
+    var url = 'https://swapi.co/api/people/';
+    var url = 'https://restaurant-list.herokuapp.com/api/v1/restaurants';
     var canvas = this.el;
     var title = 'Restaurants\n'
     var list = getList(url);
-    canvas.setAttribute('text', {
-      width: 4,
-      value: title + list,
-      color: 'black',
-      align: 'center'
-    });
+    var listText = '...';
 
     function getList(url){
       // make api request here
-      fetch("https://swapi.co/api/people/")
+      return fetch(url)
         .then(response => response.json())
         .then((data) => {
-          console.log(data.results);
+          listText = data;
+          writeToCanvas();
+          console.log('api data: ' + data);
       });
-      return 'first restaurant\n second restaurant'
     };
+
+    function writeToCanvas(){
+      canvas.setAttribute('text', {
+        width: 4,
+        value: title + listText,
+        color: 'black',
+        align: 'center'
+      });
+    };
+
   }
 });
